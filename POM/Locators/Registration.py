@@ -1,0 +1,1 @@
+REGISTRATION_FIRST_NAME = """#firstName"""

@@ -1,0 +1,31 @@
+{
+  "name": "Robot Framework Project",
+  "image": "robot-framework-custom:latest",
+  "remoteUser": "robot",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/opt/robotframework/tests,type=bind,consistency=cached"
+  ],
+  "workspaceFolder": "/opt/robotframework/tests/",
+  // Removed postCreateCommand to avoid exit code 127; use extensions array instead
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "robocorp.robotframework-lsp",
+        "Haitham-Al-Mughrabi.robot-framework-keywords"
+      ],
+      "settings": {
+        "robot.pythonpath": [
+          "/opt/robotframework/tests",  // Root
+          "/opt/robotframework/tests/Libraries",  // Covers Utilities/Keywords
+          "/opt/robotframework/tests/POM",  // Covers Keywords
+          "/opt/robotframework/tests/Resources"
+        ],
+        "robot.lint.enabled": true,
+        "robot.lint.undefinedResource": true,
+        "robot.lint.undefinedLibraries": true,
+        "robot.language-server.args": [],
+        "robot.language-server.logLevel": "trace"
+      }
+    }
+  }
+}

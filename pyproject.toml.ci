@@ -1,0 +1,49 @@
+[tool.poetry]
+name = "Musaned Trainings Automation"
+version = "1.0.0"
+description = ""
+authors = []
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = ">=3.12, <3.13"
+robotframework = "^7.0"
+robotframework-pabot = "^4.0.6"
+robotframework-jsonlibrary = "^0.5"
+allure-robotframework = "^2.13.2"
+robotframework-robocop = "^5.0.2"
+pylint = "^3.3.3"
+pylint_gitlab = "^2.0.1"
+robotframework-retryfailed = "^0.2.0"
+robotframework-browser = "^19.0.0"
+robotframework-requests = "^0.9.6"
+beautifulsoup4 = "^4.12.3"
+certifi = "^2024.6.2"
+mkdocs = "^1.6.0"
+robotframework-tidy = "^4.13.0"
+python-dotenv = "^1.0.1"
+python-docx = "^1.1.2"
+pillow = "^11.0.0"
+reportlab = "^4.2.5"
+arabic-reshaper = "^3.0.0"
+python-bidi = "^0.6.3"
+matplotlib = "^3.9.2"
+pypdf2 = "^3.0.1"
+robotframework-databaselibrary = "^2.0.4"
+robotframework-dashboard = "^0.4.1"
+tabulate = "^0.9.0"
+argparse = "^1.4.0"
+psycopg2-binary = "^2.9.10"
+poetry-plugin-export = "^1.9.0"
+tqdm = "^4.67.1"
+pycryptodome = "^3.21.0"
+appwrite = "^10.0.0"
+
+
+[tool.poetry.group.dev.dependencies]
+autopep8 = "^2.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

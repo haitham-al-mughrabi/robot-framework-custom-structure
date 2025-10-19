@@ -1,0 +1,198 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "🤖 Run Tests (Quick - Default Settings)",
+      "type": "shell",
+      "command": "./run_tests.sh",
+      "args": ["${input:TEST_PATHS}"],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "🎯 Run Specific Test",
+      "type": "shell",
+      "command": "./run_tests.sh",
+      "args": [
+        "--test",
+        "${input:TEST_NAME}",
+        "${input:TEST_PATHS}"
+      ],
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "📦 Run Specific Suite",
+      "type": "shell",
+      "command": "./run_tests.sh",
+      "args": [
+        "--suite",
+        "${input:SUITE_NAME}",
+        "${input:TEST_PATHS}"
+      ],
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "⚡ Run Tests (Headless)",
+      "type": "shell",
+      "command": "./run_tests.sh",
+      "args": [
+        "--headless",
+        "${input:TEST_PATHS}"
+      ],
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "🖥️ Run Tests (Headed with VNC)",
+      "type": "shell",
+      "command": "./run_tests.sh",
+      "args": [
+        "--headed",
+        "${input:TEST_PATHS}"
+      ],
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "🎥 Run Tests (With Video Recording)",
+      "type": "shell",
+      "command": "./run_tests.sh",
+      "args": [
+        "--record-video",
+        "True",
+        "--headed",
+        "${input:TEST_PATHS}"
+      ],
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "🔧 Run Tests (Custom Settings)",
+      "type": "shell",
+      "command": "./run_tests.sh",
+      "args": [
+        "--headless", "${input:HEADLESS_CUSTOM}",
+        "--record-video", "${input:RECORD_VIDEO_CUSTOM}",
+        "--environment", "${input:ENVIRONMENT_CUSTOM}",
+        "--log-level", "${input:LOG_LEVEL_CUSTOM}",
+        "${input:TEST_PATHS}"
+      ],
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "🐳 Build Docker Image",
+      "type": "shell",
+      "command": "docker",
+      "args": [
+        "build",
+        "-t",
+        "robot-framework-custom:latest",
+        "."
+      ],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "TEST_PATHS",
+      "type": "promptString",
+      "description": "Enter test path (e.g., Tests/my_suite.robot)",
+      "default": "Tests"
+    },
+    {
+      "id": "TEST_NAME",
+      "type": "promptString",
+      "description": "Enter test name to run (e.g., 'Login Test')",
+      "default": ""
+    },
+    {
+      "id": "SUITE_NAME",
+      "type": "promptString",
+      "description": "Enter suite name to run (e.g., 'Tests.LoginSuite')",
+      "default": ""
+    },
+    {
+      "id": "HEADLESS_CUSTOM",
+      "type": "pickString",
+      "description": "Run in headless mode?",
+      "options": ["True", "False"],
+      "default": "False"
+    },
+    {
+      "id": "RECORD_VIDEO_CUSTOM",
+      "type": "pickString",
+      "description": "Record video?",
+      "options": ["True", "False"],
+      "default": "False"
+    },
+    {
+      "id": "ENVIRONMENT_CUSTOM",
+      "type": "pickString",
+      "description": "Test environment",
+      "options": ["uat", "staging", "prod", "dev"],
+      "default": "uat"
+    },
+    {
+      "id": "LOG_LEVEL_CUSTOM",
+      "type": "pickString",
+      "description": "Log level",
+      "options": ["TRACE", "DEBUG", "INFO", "WARN", "ERROR"],
+      "default": "TRACE"
+    }
+  ]
+}
